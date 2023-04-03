@@ -8,11 +8,12 @@ public class InventorySlot : MonoBehaviour
     Item item;
 
     public Image image;
+    
 
     public void Add(Item newItem)
     {
         item = newItem;
-        image.sprite = item.image;
+        image.sprite = newItem.image;
         image.enabled = true;
         Debug.Log("items added to slot");
 
@@ -20,8 +21,9 @@ public class InventorySlot : MonoBehaviour
     public void Clear()
     {
         item = null;
+
         //image.sprite = null;
-        //image.enabled = false;
-        
+        image.enabled = false;
+        Debug.Log("slots cleared");
     }
 }

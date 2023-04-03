@@ -14,10 +14,11 @@ public class OpenAndCloseInventory : MonoBehaviour
     public Item biggergun;
     void Start()
     {
+        //adds testing items to inventory
         Inventory.add(Gun);
         Inventory.add(coin);
         Inventory.add(biggergun);
-        
+        Debug.Log("testing items added successfully");
         
     }
 
@@ -30,7 +31,7 @@ public class OpenAndCloseInventory : MonoBehaviour
             {
                 menu.gameObject.SetActive(false);
                 isActive = false;
-                
+                menu.GetComponent<InventoryUI>().UpdateUI(); ;
 
             }
             else

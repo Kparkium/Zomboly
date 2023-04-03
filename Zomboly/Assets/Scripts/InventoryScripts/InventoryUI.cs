@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InvertoryUI : MonoBehaviour
+public class InventoryUI : MonoBehaviour
 {
     public Transform InventoryUIParent;
 
@@ -16,7 +16,7 @@ public class InvertoryUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        UpdateUI();
+        
     }
     
     
@@ -34,6 +34,6 @@ public class InvertoryUI : MonoBehaviour
         {
             slots[i].Add(Inventory.inventoryList[i]);
         }
-        //Debug.Log("items made visible");
+        Debug.Log("items made visible");
     }
 }

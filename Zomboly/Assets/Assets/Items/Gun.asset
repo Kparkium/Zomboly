@@ -15,3 +15,4 @@ MonoBehaviour:
   name: Gun
   image: {fileID: 21300000, guid: bbbebcae7f9f7b24b8f151e83d694f90, type: 3}
   body: {fileID: 0}
+  inventoryNumber: -1

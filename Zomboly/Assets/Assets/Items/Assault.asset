@@ -15,3 +15,4 @@ MonoBehaviour:
   name: Assault
   image: {fileID: 21300000, guid: 56d20ce18421af84e8ba4ca0166f6703, type: 3}
   body: {fileID: 0}
+  inventoryNumber: -1
