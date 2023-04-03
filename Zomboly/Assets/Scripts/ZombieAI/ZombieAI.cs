@@ -22,7 +22,7 @@ public class ZombieAI : MonoBehaviour
     private void GetReferences()
     {
         agent = GetComponent<NavMeshAgent>();
-        anim = GetComponent<Animator>();
+        anim = GetComponentInChildren<Animator>();
     }
     private void Update()
     {
@@ -40,14 +40,14 @@ public class ZombieAI : MonoBehaviour
 
     private void MoveToTarget()
     {
-//       agent.SetDestination(target.position);
+        agent.SetDestination(target.position);
         anim.SetFloat("Speed", 1f, 0.3f, Time.deltaTime);
         RotateToTarget();
 
         float distanceToTarget = Vector3.Distance(target.position, transform.position);
-        if(distanceToTarget <= agent.stoppingDistance)
+        if (distanceToTarget <= agent.stoppingDistance)
         {
-            anim.SetFloat("Speed", 0f, 0.3f, Time.deltaTime);
+            anim.SetFloat("Speed", 0f);
         }
     }
 }
