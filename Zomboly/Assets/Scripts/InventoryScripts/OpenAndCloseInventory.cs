@@ -19,7 +19,8 @@ public class OpenAndCloseInventory : MonoBehaviour
         Inventory.add(coin);
         Inventory.add(biggergun);
         Debug.Log("testing items added successfully");
-        
+        Cursor.lockState = CursorLockMode.Locked;
+
     }
 
     // Update is called once per frame
@@ -29,13 +30,15 @@ public class OpenAndCloseInventory : MonoBehaviour
         {
             if (isActive)
             {
+                Cursor.lockState = CursorLockMode.Locked;
                 menu.gameObject.SetActive(false);
                 isActive = false;
-                menu.GetComponent<InventoryUI>().UpdateUI(); ;
+                menu.GetComponent<InventoryUI>().UpdateUI();
 
             }
             else
             {
+                Cursor.lockState = CursorLockMode.Confined;
                 menu.gameObject.SetActive(true);
                 isActive = true;
             }
