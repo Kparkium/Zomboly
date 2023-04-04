@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class Target : MonoBehaviour
 {
-    public float health = 50f;
+    public UnitHealth targetHealth = new UnitHealth(100,100);
 
-    public void TakeDamage(float damage)
+    public void TakeDamage(int damage)
     {
-        health -= damage;
-        if(health <= 0)
+        targetHealth.DamageUnit(damage);
+        if(targetHealth.Health <= 0)
         {
             Death();
         }
@@ -18,5 +18,6 @@ public class Target : MonoBehaviour
     private void Death()
     {
         Destroy(gameObject);
+        // Add particle death anim here
     }
 }
