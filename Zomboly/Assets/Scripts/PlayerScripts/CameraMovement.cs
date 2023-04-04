@@ -15,7 +15,6 @@ public class CameraMovement : MonoBehaviour
     void Start()
     {
         // Set cursor to be locked to the screen
-        Cursor.lockState = CursorLockMode.Locked;
     }
 
     //-----------------------------------------------------------------[UPDATE]-----------------------------------------------------------------

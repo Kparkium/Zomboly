@@ -15,13 +15,13 @@ public class PlayerBehaviour : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Space))
+        if(Input.GetKeyDown(KeyCode.K))
         {
             PlayerTakeDmg(20);
             Debug.Log(GameManager.gameManager._playerHealth.Health);
         }
 
-        if(Input.GetKeyDown(KeyCode.LeftShift))
+        if(Input.GetKeyDown(KeyCode.L))
         {
             PlayerRecovery(10);
             Debug.Log(GameManager.gameManager._playerHealth.Health);
