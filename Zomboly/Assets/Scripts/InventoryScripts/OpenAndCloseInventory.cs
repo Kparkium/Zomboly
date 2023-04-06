@@ -30,14 +30,16 @@ public class OpenAndCloseInventory : MonoBehaviour
         {
             if (isActive)
             {
+               
                 Cursor.lockState = CursorLockMode.Locked;
                 menu.gameObject.SetActive(false);
                 isActive = false;
-                menu.GetComponent<InventoryUI>().UpdateUI();
+                
 
             }
             else
             {
+                menu.GetComponent<InventoryUI>().UpdateUI();
                 Cursor.lockState = CursorLockMode.Confined;
                 menu.gameObject.SetActive(true);
                 isActive = true;

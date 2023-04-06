@@ -9,5 +9,6 @@ public class Item : ScriptableObject
     public Sprite image;
     public Object body;
     public int inventoryNumber;
+    public bool equip = false;
     
 }

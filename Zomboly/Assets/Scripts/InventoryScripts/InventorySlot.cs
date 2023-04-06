@@ -8,7 +8,7 @@ public class InventorySlot : MonoBehaviour
     Item item;
 
     public Image image;
-    
+    public GameObject panel;
 
     public void Add(Item newItem)
     {
@@ -16,6 +16,10 @@ public class InventorySlot : MonoBehaviour
         image.sprite = newItem.image;
         image.enabled = true;
         Debug.Log("items added to slot");
+        if(item.equip)
+        {
+            panel.GetComponent<Image>().color = Color.red;
+        }
 
     }
     public void Clear()
@@ -25,5 +29,6 @@ public class InventorySlot : MonoBehaviour
         //image.sprite = null;
         image.enabled = false;
         Debug.Log("slots cleared");
+        panel.GetComponent<Image>().color = Color.green;
     }
 }

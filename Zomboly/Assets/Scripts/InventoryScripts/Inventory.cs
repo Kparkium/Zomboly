@@ -23,7 +23,13 @@ public class Inventory
     }
     public static void equip(int i)
     {
+        if(equipped!= null)
+        {
+            equipped.equip = false;
+        }
+        
         equipped = inventoryList[i];
+        equipped.equip = true;
         Debug.Log("done success");
         Debug.Log(inventoryList[i]);
     }
