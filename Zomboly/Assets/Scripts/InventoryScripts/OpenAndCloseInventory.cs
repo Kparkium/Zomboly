@@ -5,46 +5,76 @@ using UnityEngine.UI;
 
 public class OpenAndCloseInventory : MonoBehaviour
 {
-    public Canvas menu;
+    public Canvas Inv;
+    public Canvas Pause;
 
-    private bool isActive = false;
+    private bool isActiveInv = false;
+    private bool isActivePause = false;
 
-    public Item Gun;
-    public Item coin;
-    public Item biggergun;
+    public Item Startinggun;
     void Start()
     {
         //adds testing items to inventory
-        Inventory.add(Gun);
-        Inventory.add(coin);
-        Inventory.add(biggergun);
+        Inventory.add(Startinggun);
+        Inventory.equip(0);
         Debug.Log("testing items added successfully");
         Cursor.lockState = CursorLockMode.Locked;
+        resume();
+        Cursor.lockState = CursorLockMode.Locked;
+        Inv.gameObject.SetActive(false);
+        isActiveInv = false;
+        
+        
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Tab))
         {
-            if (isActive)
+            if (isActiveInv)
             {
                
                 Cursor.lockState = CursorLockMode.Locked;
-                menu.gameObject.SetActive(false);
-                isActive = false;
-                
-
+                Inv.gameObject.SetActive(false);
+                isActiveInv = false;
+                Time.timeScale = 1;
             }
             else
             {
-                menu.GetComponent<InventoryUI>().UpdateUI();
+                Inv.GetComponent<InventoryUI>().UpdateUI();
                 Cursor.lockState = CursorLockMode.Confined;
-                menu.gameObject.SetActive(true);
-                isActive = true;
+                Inv.gameObject.SetActive(true);
+                isActiveInv = true;
+                Time.timeScale = 0;
+            }
+        }
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (isActivePause)
+            {
+                
+               resume();
+                
+            }
+            else
+            {
+                isActivePause = true;
+                Pause.gameObject.SetActive(true);
+                Cursor.lockState = CursorLockMode.Confined;
+                Time.timeScale = 0;
             }
         }
         
+    }
+    public void resume(){
+        Cursor.lockState = CursorLockMode.Locked;
+        Pause.gameObject.SetActive(false);
+        isActivePause = false;
+        Time.timeScale = 1;
+    }
+    public void quit(){
+        Application.Quit();
     }
 }

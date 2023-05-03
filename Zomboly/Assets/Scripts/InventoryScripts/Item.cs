@@ -7,8 +7,11 @@ public class Item : ScriptableObject
 {
     public string name;
     public Sprite image;
-    public Object body;
+    public GameObject body;
     public int inventoryNumber;
     public bool equip = false;
+    public void Awake(){
+        equip = false;
+    }
     
 }

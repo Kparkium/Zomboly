@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ecfcd2228ca5168448a5e5ab930405d9, type: 3}
-  m_Name: Assault
+  m_Name: Shotgun
   m_EditorClassIdentifier: 
-  name: Assault
-  image: {fileID: 21300000, guid: 56d20ce18421af84e8ba4ca0166f6703, type: 3}
+  name: Shotgun
+  image: {fileID: 21300000, guid: ddbe3599f4b4a4d72864b729fb7e2015, type: 3}
   body: {fileID: 1046804529457295581, guid: cd59656d0fc96eb41a00e34f9cba803b, type: 3}
-  inventoryNumber: 2
+  inventoryNumber: 0
   equip: 0

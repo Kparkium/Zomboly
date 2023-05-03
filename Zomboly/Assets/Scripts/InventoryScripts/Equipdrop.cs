@@ -5,18 +5,22 @@ using UnityEngine;
 public class Equipdrop : MonoBehaviour
 {
     public int index;
+    public EquipManager manager;
     public void dropItem()
     {
         Debug.Log("button is working");
+        
         Inventory.dropItem(index);
-        GameObject.Find("Canvas").GetComponent<InventoryUI>().UpdateUI(); 
+        GameObject.Find("Inventory").GetComponent<InventoryUI>().UpdateUI(); 
     }
     public void equipItem()
     {
+        
         Debug.Log("equip is working");
         Inventory.equip(index);
-        Debug.Log(Inventory.equipped.name);
-        GameObject.Find("Canvas").GetComponent<InventoryUI>().UpdateUI();
+        manager.EquipItem(Inventory.getEquipped());
+        GameObject.Find("Inventory").GetComponent<InventoryUI>().UpdateUI();
+        
     }
     // Start is called before the first frame update
     void Start()
