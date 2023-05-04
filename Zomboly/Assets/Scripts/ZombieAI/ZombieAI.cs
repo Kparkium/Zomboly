@@ -5,6 +5,7 @@ using UnityEngine.AI;
 
 public class ZombieAI : MonoBehaviour
 {
+    //Player is the target.
     public GameObject Target;
 
     [SerializeField] private Transform target;
@@ -13,7 +14,6 @@ public class ZombieAI : MonoBehaviour
     private NavMeshAgent agent = null;
     private Animator anim = null;
 
-    // Start is called before the first frame update
     private void Start()
     {
         GetReferences();
@@ -31,6 +31,7 @@ public class ZombieAI : MonoBehaviour
         MoveToTarget();
     }
 
+    //Method that makes the zombie face the target.
     public void RotateToTarget()
     {
         Vector3 direction = target.position - transform.position;
@@ -38,11 +39,14 @@ public class ZombieAI : MonoBehaviour
         transform.rotation = rotation;
     }
 
+    //Method that is used for the zombie to move towards the target.
     private void MoveToTarget()
     {
         agent.SetDestination(target.position);
         anim.SetFloat("Speed", 1f, 0.3f, Time.deltaTime);
         RotateToTarget();
+
+        //Stopping distance. Once the zombie has reached the target, it should stop but not working.
 
         float distanceToTarget = Vector3.Distance(target.position, transform.position);
         if (distanceToTarget <= agent.stoppingDistance)
