@@ -2,36 +2,31 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//This class is controlls what presing the drop and equip button does
 public class Equipdrop : MonoBehaviour
 {
+    //lets the user set the index of the item box
     public int index;
     public EquipManager manager;
+
+    //function for droping items when the drop button is clicked
     public void dropItem()
     {
-        Debug.Log("button is working");
-        
+        //removes item from inventory
         Inventory.dropItem(index);
+        //updates the inventory UI
         GameObject.Find("Inventory").GetComponent<InventoryUI>().UpdateUI(); 
     }
+    //function for equipping a item
     public void equipItem()
     {
-        
-        Debug.Log("equip is working");
+        //equips item at selected index
         Inventory.equip(index);
+        //adds the item to the hand
         manager.EquipItem(Inventory.getEquipped());
+        //updates the inventory to have that item equiped
         GameObject.Find("Inventory").GetComponent<InventoryUI>().UpdateUI();
         
     }
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-    
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
