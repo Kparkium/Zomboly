@@ -3626,6 +3626,7 @@ GameObject:
   - component: {fileID: 369868001}
   - component: {fileID: 369868000}
   - component: {fileID: 369867999}
+  - component: {fileID: 369868004}
   m_Layer: 5
   m_Name: Inventory
   m_TagString: Untagged
@@ -3728,6 +3729,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &369868004
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 369867998}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 788426b66c336468eb7da5257a444776, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item1: {fileID: 11400000, guid: 38bb4304e0b464c3eb449d0f434b4116, type: 2}
+  item2: {fileID: 11400000, guid: 707ad8d138d5e40418bf20fc93b1f337, type: 2}
 --- !u!1 &380530414
 GameObject:
   m_ObjectHideFlags: 0
