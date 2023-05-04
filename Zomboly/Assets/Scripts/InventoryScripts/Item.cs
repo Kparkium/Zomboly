@@ -10,7 +10,7 @@ public class Item : ScriptableObject
     public GameObject body;
     public int inventoryNumber;
     public bool equip = false;
-    public void Awake(){
+    public Item(){
         equip = false;
     }
     
