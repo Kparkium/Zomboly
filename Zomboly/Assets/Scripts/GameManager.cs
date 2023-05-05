@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 /* 
  A class that manages everything ESSENTIAL THAT CONTROLS THE FLOW OF THE GAME (HP of a mob is not essential for example).
@@ -23,6 +24,16 @@ public class GameManager : MonoBehaviour
         else
         {
             gameManager = this;
+        }
+    }
+
+    //Once health reaches 0, load gameover scene
+    private void Update()
+    {
+        if (gameManager._playerHealth._currentHealth <= 0)
+        {
+            SceneManager.LoadScene("GameOver");
+            Cursor.lockState = CursorLockMode.Confined;
         }
     }
 }

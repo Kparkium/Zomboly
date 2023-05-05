@@ -6,17 +6,6 @@ using UnityEngine.SceneManagement;
 
 public class GameOverScreen : MonoBehaviour
 {
-    public UnitHealth unitHealth;
-
-    //Once health reaches 0, load gameover scene
-    private void Update()
-    {
-        if (unitHealth._currentHealth <= 0)
-        {
-            SceneManager.LoadScene("GameOver");
-        }
-    }
-
     //Restart the game
     public void RestartButton()
     {
