@@ -16,4 +16,16 @@ public class GameOverScreen : MonoBehaviour
             SceneManager.LoadScene("GameOver");
         }
     }
+
+    //Restart the game
+    public void RestartButton()
+    {
+        SceneManager.LoadScene("Master");
+    }
+
+    //Redirects to Main Menu Screen
+    public void ExitButton()
+    {
+        SceneManager.LoadScene("MenuUI");
+    }
 }
