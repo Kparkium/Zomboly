@@ -5,8 +5,8 @@ using UnityEngine;
 public class UnitHealth
 {
     //Fields (these are default private)
-    int _currentHealth;
-    int _currentMaxHealth;
+    public int _currentHealth;
+    public int _currentMaxHealth;
 
     //Properties
     //You use these to change and update the fields instead of directly changing the fields.
