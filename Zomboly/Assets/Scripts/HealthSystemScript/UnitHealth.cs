@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class UnitHealth
+public class UnitHealth: MonoBehaviour
 {
     //Fields (these are default private)
     public int _currentHealth;
@@ -64,4 +65,5 @@ public class UnitHealth
             _currentHealth = _currentMaxHealth;
         }
     }
+
 }

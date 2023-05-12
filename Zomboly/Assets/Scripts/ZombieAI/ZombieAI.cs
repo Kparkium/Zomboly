@@ -5,53 +5,105 @@ using UnityEngine.AI;
 
 public class ZombieAI : MonoBehaviour
 {
-    //Player is the target.
-    public GameObject Target;
+    // References (Auto gets)
+    [SerializeField]
+    private GameObject player;
+    private NavMeshAgent entityNavAgent;
+    private UnitHealth target;
+    private EntityAnimationControl entityAnimationControl;
 
-    [SerializeField] private Transform target;
-    public float speed = 1.0f;
-    [SerializeField] private float stoppingDistance = 3;
-    private NavMeshAgent agent = null;
-    private Animator anim = null;
+    // Zombie configuration
+    public ZombieScriptableObject entityScriptableObject;
+
+    public int state = 0; // Default states {0 = Idle, 1 = Walk, 2 = Run
+    public float distanceToPlayer;
+
+    // Private variables
+    [SerializeField]
+    private Vector3 idleDestination;  // Randomly generated position for the enemy to move towards when not tracking the player
+    private bool idleTimerOver = true;  // Whether the enemy is ready to generate a new idle position
+    private bool trackingPlayer = false;  // Whether the enemy is currently tracking the player
+    private bool isAttacking = false;
+
+    private void Awake()
+    {
+        entityNavAgent = GetComponent<NavMeshAgent>();
+    }
 
     private void Start()
     {
-        GetReferences();
+        // Set player reference
+        player = GameObject.FindGameObjectWithTag("Player");
+        idleDestination = this.transform.position;
     }
 
-    private void GetReferences()
-    {
-        agent = GetComponent<NavMeshAgent>();
-        anim = GetComponentInChildren<Animator>();
-    }
     private void Update()
     {
-        transform.LookAt(Target.gameObject.transform);
-        transform.Translate(Vector3.forward * Time.deltaTime * speed);
-        MoveToTarget();
+        CalculateDestination();
     }
 
-    //Method that makes the zombie face the target.
-    public void RotateToTarget()
+    private void UpdateState()
     {
-        Vector3 direction = target.position - transform.position;
-        Quaternion rotation = Quaternion.LookRotation(direction, Vector3.up);
-        transform.rotation = rotation;
+        entityAnimationControl.UpdateAnimationIndex(state);
     }
 
-    //Method that is used for the zombie to move towards the target.
-    private void MoveToTarget()
+
+    // Calculates the next destination based on player proximity
+    private void CalculateDestination()
     {
-        agent.SetDestination(target.position);
-        anim.SetFloat("Speed", 1f, 0.3f, Time.deltaTime);
-        RotateToTarget();
+        TrackingPlayerLoop(); // Will track player if target is within range
+    }
 
-        //Stopping distance. Once the zombie has reached the target, it should stop but not working.
+    // Starts tracking the player
+    private void TrackingPlayerLoop()
+    {
 
-        float distanceToTarget = Vector3.Distance(target.position, transform.position);
-        if (distanceToTarget <= agent.stoppingDistance)
+        Debug.Log("asdas");
+        trackingPlayer = true;
+        entityNavAgent.speed = entityScriptableObject.runSpeed;
+        entityNavAgent.SetDestination(player.transform.position);
+
+
+    }
+
+    private IEnumerator Attack()
+    {
+        // Stop tracking
+        trackingPlayer = false;
+        isAttacking = true;
+        idleDestination = player.transform.position; // Update destination to point towards players location
+        // Play attack animation
+        state = entityScriptableObject.entityAttackScriptableObject.attackAnimationState; // Attacking
+
+        // Damage Target
+        RaycastHit targetObject;
+        if (Physics.Raycast(transform.position, transform.forward, out targetObject, entityScriptableObject.entityAttackScriptableObject.attackRange)) // Checks for valid hit
         {
-            anim.SetFloat("Speed", 0f);
+            UnitHealth hitTarget = targetObject.transform.GetComponent<UnitHealth>();
+            if (hitTarget != null)
+            { // If target is valid and has a target script
+                StartCoroutine(DoAttackDamage(targetObject.transform.gameObject));
+                Debug.Log(this.gameObject.name + " Attacked " + targetObject.transform.gameObject.name);
+            }
+        }
+
+        // Wait for attack duration
+        yield return new WaitForSeconds(entityScriptableObject.entityAttackScriptableObject.attackDuration);
+
+        // Start tracking
+        isAttacking = false;
+        trackingPlayer = true;
+    }
+
+    private IEnumerator DoAttackDamage(GameObject targetObject)
+    {
+        // Shoot raycast for player instead? (Or object of target type, like gun)
+        float distanceToTarget = Vector3.Distance(transform.position, targetObject.transform.position); // Distance to target
+        yield return new WaitForSeconds(entityScriptableObject.entityAttackScriptableObject.attackDuartionDamagePoint);
+        if (distanceToTarget <= entityScriptableObject.entityAttackScriptableObject.attackRange)
+        {
+            UnitHealth hitTarget = targetObject.transform.GetComponent<UnitHealth>();
+            hitTarget.DamageUnit(20); // Do damage
         }
     }
 }
