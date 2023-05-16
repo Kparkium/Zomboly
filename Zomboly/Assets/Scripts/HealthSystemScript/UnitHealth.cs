@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UnitHealth
+public class UnitHealth : MonoBehaviour 
 {
     //Fields (these are default private)
     public int _currentHealth;
@@ -35,7 +35,7 @@ public class UnitHealth
     }
 
     //Constructor
-    public UnitHealth(int health, int maxHealth)
+    public void init(int health, int maxHealth)
     {
         _currentHealth = health;
         _currentMaxHealth = maxHealth;
@@ -46,9 +46,14 @@ public class UnitHealth
     //use this method when an unit is damaged.
     public void DamageUnit(int dmgAmount)
     {
+
         if (_currentHealth > 0)
         {
             _currentHealth -= dmgAmount;
+        }
+        else
+        {
+            Destroy(gameObject);
         }
     }
 

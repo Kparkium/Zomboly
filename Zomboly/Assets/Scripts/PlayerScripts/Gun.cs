@@ -59,11 +59,11 @@ public class Gun : MonoBehaviour
         if (Physics.Raycast(cam.transform.position, cam.transform.forward, out target, range)) // Checks for valid hit
         {
             Debug.Log("Player hit: " + target.transform.name);
-            Target hitTarget = target.transform.GetComponent<Target>();
+            UnitHealth hitTarget = target.transform.GetComponent<UnitHealth>();
 
             if (hitTarget != null)
             { // If target is valid and has a target script
-                hitTarget.TakeDamage(damage);
+                hitTarget.DamageUnit(damage);
             }
         }
 

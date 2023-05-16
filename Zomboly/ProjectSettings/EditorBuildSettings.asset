@@ -8,10 +8,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MenuUI.unity
     guid: 6a29b412e1099f448b9bfbaf99ee4d26
-  - enabled: 0
-    path: Assets/Scenes/Zombie.unity
-    guid: ded836f16dac3e04a993e391c7429eb1
   - enabled: 1
     path: Assets/Scenes/Master.unity
     guid: 1681836c86ceb77448d37718a9927d67
+  - enabled: 1
+    path: Assets/Scenes/GameOver.unity
+    guid: fcc8c3400f7f370439af144a5c61c482
   m_configObjects: {}
