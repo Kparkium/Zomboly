@@ -11,8 +11,8 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static GameManager gameManager { get; private set; }
-
-    public UnitHealth _playerHealth = new UnitHealth(100, 100);
+    private GameObject player;
+    private HealthBar healthBar;
 
     //Makes sure that there is only one GameManager in the game.
     void Awake()
@@ -27,13 +27,26 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        GameObject healthBarObject = GameObject.FindGameObjectWithTag("HealthBar");
+        healthBar = healthBarObject.GetComponent<HealthBar>();
+        player = GameObject.FindGameObjectWithTag("Player");
+    }
+
     //Once health reaches 0, load gameover scene
     private void Update()
     {
-        if (gameManager._playerHealth._currentHealth <= 0)
+        UpdateHealthBar();
+        if (player.GetComponent<UnitHealth>()._currentHealth <= 0)
         {
             SceneManager.LoadScene("GameOver");
             Cursor.lockState = CursorLockMode.Confined;
         }
+    }
+
+    private void UpdateHealthBar()
+    {
+        healthBar.SetHealth(player.GetComponent<UnitHealth>()._currentHealth);
     }
 }

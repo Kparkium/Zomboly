@@ -17,11 +17,14 @@ public class PlayerControls : MonoBehaviour
 
     private Vector3 movement; // The direction of the player's movement
     private Rigidbody rb; // The player's Rigidbody component
+    private UnitHealth playerHealth;
 
     //-----------------------------------------------------------------[START]-----------------------------------------------------------------
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
+        playerHealth = GetComponent<UnitHealth>();
+        playerHealth.init(100, 100);
     }
 
     //-----------------------------------------------------------------[UPDATES]-----------------------------------------------------------------
