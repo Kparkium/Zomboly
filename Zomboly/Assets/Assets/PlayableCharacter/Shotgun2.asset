@@ -16,4 +16,4 @@ MonoBehaviour:
   image: {fileID: 21300000, guid: 7703f0e19d5b5470f9da97cc5a6df980, type: 3}
   body: {fileID: 1046804529457295581, guid: 9d42468a987264194967cbd04846da6d, type: 3}
   inventoryNumber: -1
-  equip: 0
+  equip: 1
