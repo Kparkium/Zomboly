@@ -9,6 +9,11 @@ public class Equipdrop : MonoBehaviour
     public int index;
     public EquipManager manager;
 
+    public void Start()
+    {
+        manager = FindAnyObjectByType<EquipManager>();
+    }
+
     //function for droping items when the drop button is clicked
     public void dropItem()
     {
@@ -23,6 +28,7 @@ public class Equipdrop : MonoBehaviour
         //equips item at selected index
         Inventory.equip(index);
         //adds the item to the hand
+        Debug.Log(Inventory.getEquipped().name);
         manager.EquipItem(Inventory.getEquipped());
         //updates the inventory to have that item equiped
         GameObject.Find("Inventory").GetComponent<InventoryUI>().UpdateUI();

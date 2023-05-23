@@ -324,7 +324,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Inv: {fileID: 0}
   Pause: {fileID: 0}
-  Startinggun: {fileID: 0}
+  Startinggun: {fileID: 11400000, guid: 707ad8d138d5e40418bf20fc93b1f337, type: 2}
 --- !u!1 &6560973611393624767
 GameObject:
   m_ObjectHideFlags: 0
@@ -372,7 +372,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemSlot: {fileID: 6560973611393624767}
   currentEquip: {fileID: 0}
-  item1: {fileID: 1046804529457295581, guid: cd59656d0fc96eb41a00e34f9cba803b, type: 3}
 --- !u!82 &6560973611393624757
 AudioSource:
   m_ObjectHideFlags: 0

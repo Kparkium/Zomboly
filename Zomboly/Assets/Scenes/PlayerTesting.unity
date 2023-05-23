@@ -5794,10 +5794,6 @@ PrefabInstance:
       propertyPath: Pause
       value: 
       objectReference: {fileID: 482741628}
-    - target: {fileID: 4289766041311606980, guid: 6d20a9ea4047b034faefa8a7f7f5811e, type: 3}
-      propertyPath: Startinggun
-      value: 
-      objectReference: {fileID: 11400000, guid: 38bb4304e0b464c3eb449d0f434b4116, type: 2}
     - target: {fileID: 6560973611393624752, guid: 6d20a9ea4047b034faefa8a7f7f5811e, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -5842,10 +5838,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6560973611393624754, guid: 6d20a9ea4047b034faefa8a7f7f5811e, type: 3}
-      propertyPath: item1
-      value: 
-      objectReference: {fileID: 1046804529457295581, guid: 9e30aa5aaa892004fab396cc9308eaf4, type: 3}
     - target: {fileID: 6560973611393624765, guid: 6d20a9ea4047b034faefa8a7f7f5811e, type: 3}
       propertyPath: m_Name
       value: Player 1
