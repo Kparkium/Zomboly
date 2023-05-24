@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571328, b: 0.3069217, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -9062,6 +9062,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4448719525066478546, guid: 1d4e2e205a2718e4bbcf6cd077a4c228, type: 3}
+      propertyPath: spawnTime
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4448719525066478546, guid: 1d4e2e205a2718e4bbcf6cd077a4c228, type: 3}
+      propertyPath: playerToggleRange
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4448719525066478547, guid: 1d4e2e205a2718e4bbcf6cd077a4c228, type: 3}
       propertyPath: m_Name
       value: ZombieSpawner
