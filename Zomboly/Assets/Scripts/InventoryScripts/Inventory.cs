@@ -7,12 +7,12 @@ using UnityEngine;
 public class Inventory
 {
     //this inventory stored in list and the equiped and count
-    public static List<Item> inventoryList = new List<Item>();
-    public static Item equipped;
-    public static int count = 0;
+    public List<Item> inventoryList = new List<Item>();
+    public Item equipped;
+    public int count = 0;
 
     //function to add items to the inventory
-    public static void add(Item newitem)
+    public void add(Item newitem)
     {
         //adds item
         inventoryList.Add(newitem);
@@ -21,7 +21,7 @@ public class Inventory
     }
 
     //function to drop/remove items from inventory
-    public static Item dropItem(int i)
+    public Item dropItem(int i)
     {
         //gets the item
         Item itm = inventoryList[i];
@@ -35,7 +35,7 @@ public class Inventory
     }
 
     //function to equip items
-    public static void equip(int i)
+    public void equip(int i)
     {
         //sets the old item to not equiped
         if(equipped!= null)
@@ -49,7 +49,7 @@ public class Inventory
         equipped.equip = true;
     }
     //return the equiped game object body
-    public static GameObject getEquipped(){
+    public GameObject getEquipped(){
         return equipped.body;
     }
 }

@@ -232,6 +232,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6560973611393624752}
+  - component: {fileID: 6312177935960150268}
   - component: {fileID: 6560973611393624766}
   - component: {fileID: 6766572050082848266}
   - component: {fileID: 4650707103759742661}
@@ -260,6 +261,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6312177935960150268
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6560973611393624765}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fef8d2cd5e64e9648849c93b03592836, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerObject: {fileID: 6560973611393624765}
 --- !u!114 &6560973611393624766
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -272,6 +286,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab2235175f2bd3b48a3d047ef550ed25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moveSpeed: 0
   walkSpeed: 8
   runSpeed: 15
   jumpForce: 150
@@ -280,6 +295,11 @@ MonoBehaviour:
   isSprinting: 0
   movementSmoothing: 0.1
   addedGravity: 200
+  movement: {x: 0, y: 0, z: 0}
+  rb: {fileID: 0}
+  playerHealth: {fileID: 0}
+  horizontalInput: 0
+  verticalInput: 0
 --- !u!54 &6766572050082848266
 Rigidbody:
   m_ObjectHideFlags: 0

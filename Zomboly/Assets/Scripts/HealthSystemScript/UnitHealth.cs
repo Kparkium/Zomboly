@@ -51,9 +51,9 @@ public class UnitHealth : MonoBehaviour
         {
             _currentHealth -= dmgAmount;
         }
-        else
+        if(_currentHealth <= 0)
         {
-            Destroy(gameObject);
+            DestroyImmediate(this.gameObject);
         }
     }
 

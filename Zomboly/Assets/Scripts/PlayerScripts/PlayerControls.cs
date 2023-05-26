@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerControls : MonoBehaviour
 {
     //-----------------------------------------------------------------[VARIABLES]-----------------------------------------------------------------
-    private float moveSpeed; // The speed at which the player is currently moving
+    public float moveSpeed; // The speed at which the player is currently moving
     public float walkSpeed; // Movement speed when walking
     public float runSpeed; // Movement speed when running
     public float jumpForce; // The force applied to the player when they jump
@@ -15,12 +15,17 @@ public class PlayerControls : MonoBehaviour
     public float movementSmoothing = 0.1f; // The smoothing applied to movement changes
     public float addedGravity;
 
-    private Vector3 movement; // The direction of the player's movement
-    private Rigidbody rb; // The player's Rigidbody component
-    private UnitHealth playerHealth;
+    public Vector3 movement; // The direction of the player's movement
+    public Rigidbody rb; // The player's Rigidbody component
+    public UnitHealth playerHealth;
+
+    // Testing
+    public float horizontalInput;
+    public float verticalInput;
+
 
     //-----------------------------------------------------------------[START]-----------------------------------------------------------------
-    private void Start()
+    public void Start()
     {
         rb = GetComponent<Rigidbody>();
         playerHealth = GetComponent<UnitHealth>();
@@ -28,27 +33,27 @@ public class PlayerControls : MonoBehaviour
     }
 
     //-----------------------------------------------------------------[UPDATES]-----------------------------------------------------------------
-    private void FixedUpdate()
+    public void FixedUpdate()
     {
         CheckGrounded();
         GetPlayerInput();
         ApplyMovement();
         AddDownForce();
     }
-    private void Update()
+    public void Update()
     {
         CheckJump();
         CheckSprint();
     }
 
     //-----------------------------------------------------------------[METHODS]-----------------------------------------------------------------
-    private void CheckGrounded()
+    public void CheckGrounded()
     {
         // Check if the player is on the ground
         isGrounded = Physics.Raycast(transform.position, Vector3.down, playerHeightFromGround);
     }
 
-    private void GetPlayerInput()
+    public void GetPlayerInput()
     {
         // Check if movement keys are being pressed
         bool isMoving = Input.GetButton("Horizontal") || Input.GetButton("Vertical");
@@ -70,7 +75,7 @@ public class PlayerControls : MonoBehaviour
         movement = movement.normalized;
     }
 
-    private void ApplyMovement()
+    public void ApplyMovement()
     {
         // Calculate the target velocity
         Vector3 targetVelocity = movement * moveSpeed;
@@ -80,7 +85,7 @@ public class PlayerControls : MonoBehaviour
         rb.velocity = Vector3.Lerp(rb.velocity, targetVelocity, movementSmoothing);
     }
 
-    private void CheckJump()
+    public void CheckJump()
     {
         // Check if the player is pressing the jump button and is on the ground
         if (Input.GetButtonDown("Jump") && isGrounded)
@@ -90,15 +95,15 @@ public class PlayerControls : MonoBehaviour
         }
     }
 
-    private void AddDownForce()
+    public void AddDownForce()
     {
-        if(!isGrounded)
+        if (!isGrounded)
         {
             rb.AddForce(Vector3.down * addedGravity, ForceMode.Force);
         }
     }
 
-    private void CheckSprint()
+    public void CheckSprint()
     {
         if (Input.GetKey(KeyCode.LeftShift) && isGrounded) // Checks if shift key is down
         {
