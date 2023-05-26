@@ -37,3 +37,7 @@ The development branch is where all the team members merge and pull their work a
 Each member has their own individual branch where they work on their user stories. This branch pull and merges from and into development.
 <br>
 This structure is to make sure that the a fault of a single member does not affect the whole project and consequently the entire team.
+
+## How to Run The Project
+
+In the Unity project file hierarchy, under the scenes folder there is a Master scene where all the features are integrated with each other and is the most complete version of the game. 
