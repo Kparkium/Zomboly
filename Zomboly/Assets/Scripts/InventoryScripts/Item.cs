@@ -11,6 +11,7 @@ public class Item : ScriptableObject
     public GameObject body;
     public int inventoryNumber;
     public bool equip = false;
+    public bool isRadio;
     //there is a bug where this keeps defaulting to true breaking the inventory untill you manually set to false
     public Item(){
         equip = false;

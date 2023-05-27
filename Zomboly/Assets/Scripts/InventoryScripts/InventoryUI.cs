@@ -9,14 +9,14 @@ public class InventoryUI : MonoBehaviour
     public Transform InventoryUIParent;
     //array containing inventory slots
     InventorySlot[] slots;
-    public Inventory inventory;
+    private Inventory inventory;
 
     //when the object first awakes
     void Awake()
     {
         //sets the slots
         slots = InventoryUIParent.GetComponentsInChildren<InventorySlot>();
-        inventory = GameObject.FindGameObjectWithTag("Player").GetComponent<Inventory>();
+        inventory = GameObject.FindGameObjectWithTag("InventoryManager").GetComponent<Inventory>();
     }
     
     //updates the inventory UI

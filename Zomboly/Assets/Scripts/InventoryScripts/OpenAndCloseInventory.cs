@@ -15,12 +15,12 @@ public class OpenAndCloseInventory : MonoBehaviour
 
     //stores the starting gun
     public Item Startinggun;
-    public Inventory inventory;
+    private Inventory inventory;
 
     //starts when the code starts 
     void Start()
     {
-        inventory = GameObject.FindGameObjectWithTag("Player").GetComponent<Inventory>();
+        inventory = GameObject.FindGameObjectWithTag("InventoryManager").GetComponent<Inventory>();
         //adds starting gun to inventory
         if (inventory.count == 0)
         {
