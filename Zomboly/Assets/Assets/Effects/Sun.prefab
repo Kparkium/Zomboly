@@ -107,7 +107,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1febc267f7b2c014ea689e0ac9f23c9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dayDurationInMinutes: 10
+  dayDurationInMinutes: 7
   currentTimeOfDay: 16
   dayColor: {r: 1, g: 1, b: 1, a: 1}
   nightColor: {r: 0.2, g: 0.2, b: 0.4, a: 1}

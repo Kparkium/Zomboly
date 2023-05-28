@@ -13,6 +13,7 @@ public class WeatherManager : MonoBehaviour
 
     private GameObject player;
     private DayNightCycle dayNightCycle;
+    private AudioManager audioManager;
     private GameObject currentRain;
     private GameObject currentFog;
     private GameObject currentFireFlies;
@@ -23,6 +24,7 @@ public class WeatherManager : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player");
         dayNightCycle = GameObject.FindGameObjectWithTag("DayNightCycle").GetComponent<DayNightCycle>();
+        audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
         StartCoroutine(rainLoop());
         StartCoroutine(fireFlyLoop());
     }
@@ -40,10 +42,12 @@ public class WeatherManager : MonoBehaviour
             if (currentRain != null)
             {
                 Destroy(currentRain);
+                audioManager.StopAudio(1);
             }
             else
             {
                 currentRain = Instantiate(rainParticles.gameObject, player.transform.position + new Vector3(0,10,0), Quaternion.identity, player.transform);
+                audioManager.StartAudio(1, 0.3f);
             }
         }
         StartCoroutine(rainLoop());

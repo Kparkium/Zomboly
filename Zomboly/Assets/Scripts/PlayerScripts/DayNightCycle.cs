@@ -64,7 +64,7 @@ public class DayNightCycle : MonoBehaviour
 
     private void CheckTimeOfDay()
     {
-        if(currentTimeOfDay < 6 || currentTimeOfDay > 20)
+        if(currentTimeOfDay < 6 || currentTimeOfDay > 18)
         {
             isNight = true;
             isDay = false;
