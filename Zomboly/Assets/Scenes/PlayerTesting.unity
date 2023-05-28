@@ -179,6 +179,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   index: 1
   manager: {fileID: 0}
+  playerInventory: {fileID: 0}
 --- !u!114 &20246984
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -329,6 +330,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   index: 6
   manager: {fileID: 0}
+  playerInventory: {fileID: 0}
 --- !u!114 &56268575
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -536,6 +538,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   index: 2
   manager: {fileID: 0}
+  playerInventory: {fileID: 0}
 --- !u!114 &108371985
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1064,6 +1067,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thisItem: {fileID: 11400000, guid: 707ad8d138d5e40418bf20fc93b1f337, type: 2}
+  inventory: {fileID: 0}
 --- !u!1 &177605919
 GameObject:
   m_ObjectHideFlags: 0
@@ -1538,6 +1542,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   index: 7
   manager: {fileID: 0}
+  playerInventory: {fileID: 0}
 --- !u!114 &361117418
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2812,6 +2817,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   index: 4
   manager: {fileID: 0}
+  playerInventory: {fileID: 0}
 --- !u!114 &903452068
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3268,6 +3274,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   index: 5
   manager: {fileID: 0}
+  playerInventory: {fileID: 0}
 --- !u!114 &984838694
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4034,6 +4041,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   index: 4
   manager: {fileID: 0}
+  playerInventory: {fileID: 0}
 --- !u!114 &1112822374
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4161,6 +4169,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   InventoryUIParent: {fileID: 994977619}
+  inventory: {fileID: 0}
 --- !u!114 &1130196396
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4485,6 +4494,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   index: 5
   manager: {fileID: 0}
+  playerInventory: {fileID: 0}
 --- !u!114 &1372090176
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4634,6 +4644,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   index: 2
   manager: {fileID: 0}
+  playerInventory: {fileID: 0}
 --- !u!114 &1403850325
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4950,6 +4961,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   index: 3
   manager: {fileID: 0}
+  playerInventory: {fileID: 0}
 --- !u!114 &1445435083
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5290,6 +5302,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   index: 3
   manager: {fileID: 0}
+  playerInventory: {fileID: 0}
 --- !u!114 &1617649934
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5439,6 +5452,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   index: 6
   manager: {fileID: 0}
+  playerInventory: {fileID: 0}
 --- !u!114 &1702538442
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5685,6 +5699,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   index: 0
   manager: {fileID: 0}
+  playerInventory: {fileID: 0}
 --- !u!114 &1756479509
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6495,6 +6510,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   index: 1
   manager: {fileID: 0}
+  playerInventory: {fileID: 0}
 --- !u!114 &1891880967
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6847,6 +6863,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   index: 7
   manager: {fileID: 0}
+  playerInventory: {fileID: 0}
 --- !u!114 &2060867894
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7265,6 +7282,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   index: 0
   manager: {fileID: 0}
+  playerInventory: {fileID: 0}
 --- !u!114 &2125931937
 MonoBehaviour:
   m_ObjectHideFlags: 0
