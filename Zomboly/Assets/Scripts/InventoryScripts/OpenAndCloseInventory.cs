@@ -15,19 +15,19 @@ public class OpenAndCloseInventory : MonoBehaviour
 
     //stores the starting gun
     public Item Startinggun;
-    private Inventory inventory;
+
 
     //starts when the code starts 
     void Start()
     {
-        inventory = GameObject.FindGameObjectWithTag("InventoryManager").GetComponent<Inventory>();
+        Debug.Log("start");
         //adds starting gun to inventory
-        if (inventory.count == 0)
+        if (Inventory.count == 0)
         {
-            inventory.add(Startinggun);
+            Inventory.add(Startinggun);
         }
         //equips the gun
-        inventory.equip(0);
+        Inventory.equip(0);
         //locks the cursor
         Cursor.lockState = CursorLockMode.Locked;
         //closes the resume menu
@@ -43,6 +43,7 @@ public class OpenAndCloseInventory : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+         
         //if the user clicks tab
         if (Input.GetKeyDown(KeyCode.Tab))
         {
@@ -54,6 +55,7 @@ public class OpenAndCloseInventory : MonoBehaviour
                 Inv.gameObject.SetActive(false);
                 isActiveInv = false;
                 Time.timeScale = 1;
+                Debug.Log("updates1");
             }
             else
             {
@@ -63,6 +65,7 @@ public class OpenAndCloseInventory : MonoBehaviour
                 Inv.gameObject.SetActive(true);
                 isActiveInv = true;
                 Time.timeScale = 0;
+                Debug.Log("updates2");
             }
         }
         //if escape is clicked 
@@ -72,6 +75,7 @@ public class OpenAndCloseInventory : MonoBehaviour
             if (isActivePause)
             { 
                resume();   
+               Debug.Log("updates3");
             }
             else
             {
@@ -80,6 +84,7 @@ public class OpenAndCloseInventory : MonoBehaviour
                 Pause.gameObject.SetActive(true);
                 Cursor.lockState = CursorLockMode.Confined;
                 Time.timeScale = 0;
+                Debug.Log("updates4");
             }
         }
         

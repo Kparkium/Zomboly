@@ -236,7 +236,6 @@ GameObject:
   - component: {fileID: 6766572050082848266}
   - component: {fileID: 4650707103759742661}
   - component: {fileID: 4289766041311606980}
-  - component: {fileID: 2042221340060242356}
   m_Layer: 0
   m_Name: Player 1
   m_TagString: Player
@@ -334,22 +333,6 @@ MonoBehaviour:
   Inv: {fileID: 0}
   Pause: {fileID: 0}
   Startinggun: {fileID: 11400000, guid: 707ad8d138d5e40418bf20fc93b1f337, type: 2}
-  inventory: {fileID: 0}
---- !u!114 &2042221340060242356
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6560973611393624765}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cae254103bde6dc4bb0d2f2d7fb8a467, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  inventoryList: []
-  equipped: {fileID: 0}
-  count: 0
 --- !u!1 &6560973611393624767
 GameObject:
   m_ObjectHideFlags: 0
