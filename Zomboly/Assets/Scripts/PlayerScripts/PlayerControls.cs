@@ -18,11 +18,13 @@ public class PlayerControls : MonoBehaviour
     public Vector3 movement; // The direction of the player's movement
     public Rigidbody rb; // The player's Rigidbody component
     public UnitHealth playerHealth;
+    public float maxStamina;
+    public float staminaDrain;
 
     // Testing
     public float horizontalInput;
     public float verticalInput;
-
+    private float stamina;
 
     //-----------------------------------------------------------------[START]-----------------------------------------------------------------
     public void Start()
@@ -30,6 +32,7 @@ public class PlayerControls : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         playerHealth = GetComponent<UnitHealth>();
         playerHealth.init(100, 100);
+        stamina = maxStamina;
     }
 
     //-----------------------------------------------------------------[UPDATES]-----------------------------------------------------------------
@@ -44,6 +47,7 @@ public class PlayerControls : MonoBehaviour
     {
         CheckJump();
         CheckSprint();
+        UpdateStamina();
     }
 
     //-----------------------------------------------------------------[METHODS]-----------------------------------------------------------------
@@ -105,7 +109,7 @@ public class PlayerControls : MonoBehaviour
 
     public void CheckSprint()
     {
-        if (Input.GetKey(KeyCode.LeftShift) && isGrounded) // Checks if shift key is down
+        if (Input.GetKey(KeyCode.LeftShift) && isGrounded && stamina > 0) // Checks if shift key is down
         {
             moveSpeed = runSpeed;
             isSprinting = true;
@@ -114,6 +118,18 @@ public class PlayerControls : MonoBehaviour
         {
             moveSpeed = walkSpeed;
             isSprinting = false;
+        }
+    }
+
+    public void UpdateStamina()
+    {
+        if (isSprinting && stamina > 0)
+        {
+            stamina -= staminaDrain * Time.deltaTime;
+        }
+        else if(stamina < maxStamina)
+        {
+            stamina += staminaDrain * Time.deltaTime;
         }
     }
 }

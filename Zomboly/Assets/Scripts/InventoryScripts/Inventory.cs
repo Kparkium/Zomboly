@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 //class to controll the inventory
-public class Inventory
+public class Inventory : MonoBehaviour
 {
     //this inventory stored in list and the equiped and count
     public List<Item> inventoryList = new List<Item>();
