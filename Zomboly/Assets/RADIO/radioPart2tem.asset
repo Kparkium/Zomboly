@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: radioPart2tem
   m_EditorClassIdentifier: 
   name: 
-  image: {fileID: 0}
+  image: {fileID: 21300000, guid: bbbebcae7f9f7b24b8f151e83d694f90, type: 3}
   body: {fileID: 919132149155446097, guid: 7867620d6dd36d8489c84d8a9f929a26, type: 3}
   inventoryNumber: 0
   equip: 0
-  isRadio: 0
+  isRadio: 1

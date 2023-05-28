@@ -9,14 +9,14 @@ public class InventoryUI : MonoBehaviour
     public Transform InventoryUIParent;
     //array containing inventory slots
     InventorySlot[] slots;
-    private Inventory inventory;
+ 
 
     //when the object first awakes
     void Awake()
     {
         //sets the slots
         slots = InventoryUIParent.GetComponentsInChildren<InventorySlot>();
-        inventory = GameObject.FindGameObjectWithTag("InventoryManager").GetComponent<Inventory>();
+
     }
     
     //updates the inventory UI
@@ -30,10 +30,10 @@ public class InventoryUI : MonoBehaviour
             
         }
         //loops through the inventory
-        for (int i = 0; i < inventory.count; i++)
+        for (int i = 0; i < Inventory.count; i++)
         {
             //adds all items in the inventory to their slots
-            slots[i].Add(inventory.inventoryList[i]);
+            slots[i].Add(Inventory.inventoryList[i]);
         }
        
     }

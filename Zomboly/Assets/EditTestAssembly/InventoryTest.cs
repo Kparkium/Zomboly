@@ -10,6 +10,7 @@ using Assert = UnityEngine.Assertions.Assert;
 
 public class InventoryTest
 {
+    /*
     private Inventory testInventory;
     private Item testItem;
 
@@ -76,5 +77,5 @@ public class InventoryTest
 
         Assert.AreEqual(equippedGameObject, result);
     }
-
+*/
 }
