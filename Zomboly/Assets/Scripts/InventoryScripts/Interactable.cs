@@ -18,13 +18,16 @@ public class Interactable : MonoBehaviour
     public void Interacted()
     {
         if (thisItem.name == "GameWin"){
-         
-            Application.LoadLevel("GameComplete");
-        }
-        //adds the items to the inventory 
+            if (Inventory.radioInInv){
+                    Application.LoadLevel("GameComplete");
+            }
+        } else {
+//adds the items to the inventory 
         Inventory.add(thisItem);
         //disables the game object
         this.gameObject.SetActive(false);
+        }
+        
         
     }
 
