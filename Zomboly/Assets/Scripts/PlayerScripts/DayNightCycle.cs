@@ -11,6 +11,8 @@ public class DayNightCycle : MonoBehaviour
     public float dawnDuskDurationInHours = 1f;
     public Color dawnColor = new Color(1f, 0.8f, 0.4f);
     public Color duskColor = new Color(0.8f, 0.2f, 0.2f);
+    public bool isDay;
+    public bool isNight;
 
     private Light directionalLight;
 
@@ -22,6 +24,12 @@ public class DayNightCycle : MonoBehaviour
 
     // Update is called once per frame
     void Update()
+    {
+        UpdateTime();
+        CheckTimeOfDay();
+    }
+
+    private void UpdateTime()
     {
         // Calculate current time of day
         currentTimeOfDay += Time.deltaTime / (dayDurationInMinutes * 60f) * 24f; // Calculate the time of day based on the desired output in minutes
@@ -51,6 +59,20 @@ public class DayNightCycle : MonoBehaviour
             {
                 directionalLight.color = dayColor;
             }
+        }
+    }
+
+    private void CheckTimeOfDay()
+    {
+        if(currentTimeOfDay < 6 || currentTimeOfDay > 20)
+        {
+            isNight = true;
+            isDay = false;
+        }
+        else
+        {
+            isNight = false;
+            isDay = true;
         }
     }
 }

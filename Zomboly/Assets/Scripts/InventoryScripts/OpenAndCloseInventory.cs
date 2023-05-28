@@ -16,18 +16,21 @@ public class OpenAndCloseInventory : MonoBehaviour
     //stores the starting gun
     public Item Startinggun;
 
+    private Inventory playerInventory;
+
 
     //starts when the code starts 
     void Start()
     {
+        playerInventory = GameObject.FindGameObjectWithTag("Player").GetComponent<Inventory>();
         Debug.Log("start");
         //adds starting gun to inventory
-        if (Inventory.count == 0)
+        if (playerInventory.count == 0)
         {
-            Inventory.add(Startinggun);
+            playerInventory.add(Startinggun);
         }
         //equips the gun
-        Inventory.equip(0);
+        playerInventory.equip(0);
         //locks the cursor
         Cursor.lockState = CursorLockMode.Locked;
         //closes the resume menu

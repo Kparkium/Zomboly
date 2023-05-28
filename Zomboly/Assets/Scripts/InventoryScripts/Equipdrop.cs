@@ -8,18 +8,20 @@ public class Equipdrop : MonoBehaviour
     //lets the user set the index of the item box
     public int index;
     public EquipManager manager;
+    private Inventory playerInventory;
     
 
     public void Start()
     {
         manager = FindAnyObjectByType<EquipManager>();
+        playerInventory = GameObject.FindGameObjectWithTag("Player").GetComponent<Inventory>();
     }
 
     //function for droping items when the drop button is clicked
     public void dropItem()
     {
         //removes item from inventory
-        Inventory.dropItem(index);
+        playerInventory.dropItem(index);
         //updates the inventory UI
         GameObject.Find("Inventory").GetComponent<InventoryUI>().UpdateUI(); 
     }
@@ -27,10 +29,10 @@ public class Equipdrop : MonoBehaviour
     public void equipItem()
     {
         //equips item at selected index
-        Inventory.equip(index);
+        playerInventory.equip(index);
         //adds the item to the hand
-        Debug.Log(Inventory.getEquipped().name);
-        manager.EquipItem(Inventory.getEquipped());
+        Debug.Log(playerInventory.getEquipped().name);
+        manager.EquipItem(playerInventory.getEquipped());
         //updates the inventory to have that item equiped
         GameObject.Find("Inventory").GetComponent<InventoryUI>().UpdateUI();
         

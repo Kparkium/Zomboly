@@ -6,22 +6,25 @@ using UnityEngine;
 public class InventoryUI : MonoBehaviour
 {
     //refference to the panel containing all of the slots
-    public Transform InventoryUIParent;
+    public GameObject InventoryUIParent;
     //array containing inventory slots
-    InventorySlot[] slots;
- 
+    private Inventory playerInventory;
+    public InventorySlot[] slots;
 
     //when the object first awakes
-    void Awake()
+    public void Awake()
     {
         //sets the slots
         slots = InventoryUIParent.GetComponentsInChildren<InventorySlot>();
-
     }
     
     //updates the inventory UI
     public void UpdateUI()
     {
+        if(playerInventory == null)
+        {
+            playerInventory = GameObject.FindGameObjectWithTag("Player").GetComponent<Inventory>();
+        }
         //loops through the slots
         for (int i = 0; i < slots.Length; i++)
         {
@@ -30,10 +33,10 @@ public class InventoryUI : MonoBehaviour
             
         }
         //loops through the inventory
-        for (int i = 0; i < Inventory.count; i++)
+        for (int i = 0; i < playerInventory.count; i++)
         {
             //adds all items in the inventory to their slots
-            slots[i].Add(Inventory.inventoryList[i]);
+            slots[i].Add(playerInventory.inventoryList[i]);
         }
        
     }

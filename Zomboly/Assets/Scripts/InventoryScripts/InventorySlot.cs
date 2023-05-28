@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class InventorySlot : MonoBehaviour
 {
     //stores the item
-    Item item;
+    public Item item;
 
     //references to the different parts of the slot
     public Image image;

@@ -12,6 +12,8 @@ public class PlayerControls : MonoBehaviour
     public float playerHeightFromGround;
     public bool isGrounded; // Whether or not the player is currently on the ground
     public bool isSprinting; // Whether the player is currently sprinting
+    public bool canSprint;
+    public bool isMoving;
     public float movementSmoothing = 0.1f; // The smoothing applied to movement changes
     public float addedGravity;
 
@@ -24,7 +26,8 @@ public class PlayerControls : MonoBehaviour
     // Testing
     public float horizontalInput;
     public float verticalInput;
-    private float stamina;
+    public float stamina;
+
 
     //-----------------------------------------------------------------[START]-----------------------------------------------------------------
     public void Start()
@@ -33,6 +36,7 @@ public class PlayerControls : MonoBehaviour
         playerHealth = GetComponent<UnitHealth>();
         playerHealth.init(100, 100);
         stamina = maxStamina;
+        canSprint = true;
     }
 
     //-----------------------------------------------------------------[UPDATES]-----------------------------------------------------------------
@@ -60,7 +64,7 @@ public class PlayerControls : MonoBehaviour
     public void GetPlayerInput()
     {
         // Check if movement keys are being pressed
-        bool isMoving = Input.GetButton("Horizontal") || Input.GetButton("Vertical");
+        isMoving = Input.GetButton("Horizontal") || Input.GetButton("Vertical");
 
         // Update the movement vector based on the input
         if (isMoving)
@@ -109,7 +113,7 @@ public class PlayerControls : MonoBehaviour
 
     public void CheckSprint()
     {
-        if (Input.GetKey(KeyCode.LeftShift) && isGrounded && stamina > 0) // Checks if shift key is down
+        if (Input.GetKey(KeyCode.LeftShift) && isGrounded && canSprint && isMoving) // Checks if shift key is down
         {
             moveSpeed = runSpeed;
             isSprinting = true;
@@ -131,5 +135,17 @@ public class PlayerControls : MonoBehaviour
         {
             stamina += staminaDrain * Time.deltaTime;
         }
+
+        if(stamina <= 1)
+        {
+            canSprint = false;
+            StartCoroutine(waitForSprintTimer());
+        }
+    }
+
+    private IEnumerator waitForSprintTimer()
+    {
+        yield return new WaitForSeconds(3);
+        canSprint = true;
     }
 }

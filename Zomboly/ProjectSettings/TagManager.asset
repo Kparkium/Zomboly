@@ -6,6 +6,10 @@ TagManager:
   tags:
   - HealthBar
   - Win
+  - StaminaBar
+  - DayNightCycle
+  - RadioPickup
+  - Inventory
   layers:
   - Default
   - TransparentFX
@@ -13,7 +17,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - PostProcessing
   - 
   - 
   - 
