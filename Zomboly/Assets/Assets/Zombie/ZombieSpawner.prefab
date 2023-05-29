@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnObject: {fileID: 1140169125192065281, guid: 377e67127b1bd7948afaffec8e142933, type: 3}
-  spawnRadius: 20
-  spawnTime: 10
-  maxObjectsAtOnce: 5
+  spawnRadius: 5
+  spawnTime: 5
+  maxObjectsAtOnce: 25
   playerToggleRange: 40

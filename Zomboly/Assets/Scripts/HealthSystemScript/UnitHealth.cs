@@ -8,6 +8,11 @@ public class UnitHealth : MonoBehaviour
     public int _currentHealth;
     public int _currentMaxHealth;
 
+    public void Start()
+    {
+        StartCoroutine(healthTick());
+    }
+
     //Properties
     //You use these to change and update the fields instead of directly changing the fields.
     public int Health
@@ -51,9 +56,9 @@ public class UnitHealth : MonoBehaviour
         {
             _currentHealth -= dmgAmount;
         }
-        else
+        if(_currentHealth <= 0)
         {
-            Destroy(gameObject);
+            DestroyImmediate(this.gameObject);
         }
     }
 
@@ -68,5 +73,12 @@ public class UnitHealth : MonoBehaviour
         {
             _currentHealth = _currentMaxHealth;
         }
+    }
+
+    private IEnumerator healthTick()
+    {
+        yield return new WaitForSeconds(2);
+        HealUnit(1);
+        StartCoroutine(healthTick());
     }
 }

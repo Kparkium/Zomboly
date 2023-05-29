@@ -12,8 +12,8 @@ public class SetObjects : MonoBehaviour
     void Start()
     {
         //set the equip to the right value
-        item1.equip = true;
-        item2.equip = false;
+        item1.equip = false;
+        item2.equip = true;
     }
 
 }
