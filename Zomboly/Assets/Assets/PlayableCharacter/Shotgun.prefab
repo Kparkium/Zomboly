@@ -98,7 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a552bb46d9afa6541b89915474864606, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 10
+  damage: 20
   range: 40
   cooldownDuration: 5
   muzzleFlash: {fileID: 1431267717926845574, guid: e5ff94ecf8f1e9044a3daa44f25479ad, type: 3}

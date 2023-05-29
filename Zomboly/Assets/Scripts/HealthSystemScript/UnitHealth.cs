@@ -59,7 +59,7 @@ public class UnitHealth : MonoBehaviour
         }
         if(_currentHealth <= 0)
         {
-            DestroyImmediate(this.gameObject);
+            Destroy(this.gameObject);
         }
     }
 
