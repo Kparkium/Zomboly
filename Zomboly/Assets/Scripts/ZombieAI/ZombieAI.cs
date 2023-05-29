@@ -55,9 +55,12 @@ public class ZombieAI : MonoBehaviour
     // Calculates the next destination based on player proximity
     private void CalculateDestination()
     {
-        distanceToPlayer = Vector3.Distance(transform.position, player.transform.position); // Distance to player
+        if(player != null)
+        {
+            distanceToPlayer = Vector3.Distance(transform.position, player.transform.position); // Distance to player
+        }
         // If player is within target range, start tracking player
-        if (distanceToPlayer <= (trackingPlayer ? entityScriptableObject.trackedLockDist : entityScriptableObject.untrackedLockDist) && entityScriptableObject.hostile)
+        if (distanceToPlayer <= (trackingPlayer ? entityScriptableObject.trackedLockDist : entityScriptableObject.untrackedLockDist) && entityScriptableObject.hostile && player != null)
         {
             TrackingPlayerLoop(); // Will track player if target is within range
         }

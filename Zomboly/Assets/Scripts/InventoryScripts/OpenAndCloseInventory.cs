@@ -20,7 +20,10 @@ public class OpenAndCloseInventory : MonoBehaviour
     void Start()
     {
         //adds starting gun to inventory
-        Inventory.add(Startinggun);
+        if(Inventory.count == 0)
+        {
+            Inventory.add(Startinggun);
+        }
         //equips the gun
         Inventory.equip(0);
         //locks the cursor

@@ -5726,6 +5726,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4289766041311606980, guid: 6d20a9ea4047b034faefa8a7f7f5811e, type: 3}
+      propertyPath: Inv
+      value: 
+      objectReference: {fileID: 369868002}
+    - target: {fileID: 4289766041311606980, guid: 6d20a9ea4047b034faefa8a7f7f5811e, type: 3}
+      propertyPath: Pause
+      value: 
+      objectReference: {fileID: 226015635}
     - target: {fileID: 6560973611393624752, guid: 6d20a9ea4047b034faefa8a7f7f5811e, type: 3}
       propertyPath: m_RootOrder
       value: 9
@@ -7914,7 +7922,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbaec7ea9164eb14a81356a0764599b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thisItem: {fileID: 11400000, guid: 707ad8d138d5e40418bf20fc93b1f337, type: 2}
+  thisItem: {fileID: 11400000, guid: 38bb4304e0b464c3eb449d0f434b4116, type: 2}
 --- !u!65 &1002834253
 BoxCollider:
   m_ObjectHideFlags: 0
