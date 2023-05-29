@@ -8,22 +8,41 @@ public class Interactable : MonoBehaviour
 {
     //Reference to the scriptable object Item this game object is representing
     public Item thisItem;
+    public bool hasParticles;
+    public ParticleSystem particles;
     private Inventory playerInventory;
+    private ParticleSystem currentParticles;
+
   
 
     public void Start()
     {
         playerInventory = GameObject.FindGameObjectWithTag("Player").GetComponent<Inventory>();
+        if(hasParticles)
+        {
+            PlayParticles();
+        }
     }
 
     //when the object is interacted with
     public void InteractWithInteractable()
     {
         if (thisItem.itemName == "Lever"){
-            if (playerInventory.radioInInv){
+            if (playerInventory.repairedRadioTower)
+            {
                 SceneManager.LoadScene("GameComplete");
+                Cursor.lockState = CursorLockMode.Confined;
             }
-        } else {
+        }
+        else if(thisItem.itemName == "Repair" )
+        {
+            if (!playerInventory.repairedRadioTower && playerInventory.radioInInv)
+            {
+                playerInventory.repairedRadioTower = true;
+                StopParticles();
+            }
+        }
+        else {
             //adds the items to the inventory 
             playerInventory.add(thisItem);
         //disables the game object
@@ -31,6 +50,19 @@ public class Interactable : MonoBehaviour
         }
         
         
+    }
+
+    public void PlayParticles()
+    {
+        currentParticles = Instantiate(particles, this.transform.position, Quaternion.identity, this.transform);
+    }
+
+    public void StopParticles()
+    {
+        if(currentParticles!=null)
+        {
+            Destroy(currentParticles);
+        }
     }
 
 }

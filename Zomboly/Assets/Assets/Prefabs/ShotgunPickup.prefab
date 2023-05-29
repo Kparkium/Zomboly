@@ -250,3 +250,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thisItem: {fileID: 11400000, guid: 38bb4304e0b464c3eb449d0f434b4116, type: 2}
+  hasParticles: 1
+  particles: {fileID: 2521496011410075131, guid: 613a9e98dd437354cbeb78c06b5d8b2f, type: 3}

@@ -46,7 +46,7 @@ public class GameManager : MonoBehaviour
     private void Update()
     {
         UpdateGUI();
-        if (player.GetComponent<UnitHealth>()._currentHealth <= 0)
+        if (player == null || player.GetComponent<UnitHealth>()._currentHealth <= 0)
         {
             SceneManager.LoadScene("GameOver");
             Cursor.lockState = CursorLockMode.Confined;
@@ -63,7 +63,11 @@ public class GameManager : MonoBehaviour
             {
                 taskText.text = "Find radio components: " + playerInventory.radioObjects + "/" + playerInventory.radioObjectsMax;
             }
-            else
+            else if(!playerInventory.repairedRadioTower && playerInventory.radioInInv)
+            {
+                taskText.text = "Locate the radio antenna to repair it";
+            }
+            else if(playerInventory.repairedRadioTower)
             {
                 taskText.text = "Locate the radio tower & call for help";
             }

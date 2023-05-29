@@ -7,6 +7,7 @@ public class AudioManager : MonoBehaviour
     public AudioSource windSource; // 0
     public AudioSource rainSource; // 1
     public float fadeTime;
+    public float maxVolume;
 
     private Coroutine fadeCoroutine;
 
@@ -30,7 +31,7 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    public void StartAudio(int i, float maxVolume)
+    public void StartAudio(int i)
     {
         if (i == 0)
         {
@@ -40,7 +41,7 @@ public class AudioManager : MonoBehaviour
             }
             windSource.volume = 0;
             windSource.Play();
-            fadeCoroutine = StartCoroutine(FadeInVolume(windSource, maxVolume));
+            fadeCoroutine = StartCoroutine(FadeInVolume(windSource));
         }
         else if (i == 1)
         {
@@ -50,11 +51,11 @@ public class AudioManager : MonoBehaviour
             }
             rainSource.volume = 0;
             rainSource.Play();
-            fadeCoroutine = StartCoroutine(FadeInVolume(rainSource, maxVolume));
+            fadeCoroutine = StartCoroutine(FadeInVolume(rainSource));
         }
     }
 
-    private IEnumerator FadeInVolume(AudioSource audioSource, float maxVolume)
+    private IEnumerator FadeInVolume(AudioSource audioSource)
     {
         while (audioSource.volume < maxVolume)
         {

@@ -31,7 +31,10 @@ public class WeatherManager : MonoBehaviour
 
     private void Update()
     {
-        CheckForFog();
+        if(player != null)
+        {
+            CheckForFog();
+        }
     }
 
     private IEnumerator rainLoop()
@@ -47,7 +50,7 @@ public class WeatherManager : MonoBehaviour
             else
             {
                 currentRain = Instantiate(rainParticles.gameObject, player.transform.position + new Vector3(0,10,0), Quaternion.identity, player.transform);
-                audioManager.StartAudio(1, 0.3f);
+                audioManager.StartAudio(1);
             }
         }
         StartCoroutine(rainLoop());

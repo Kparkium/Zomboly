@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ecfcd2228ca5168448a5e5ab930405d9, type: 3}
   m_Name: Pistol
   m_EditorClassIdentifier: 
-  name: Pistol
-  image: {fileID: 21300000, guid: 3494dc956dfd7174abc07060940a2848, type: 3}
+  itemName: 
+  image: {fileID: 21300000, guid: bbbebcae7f9f7b24b8f151e83d694f90, type: 3}
   body: {fileID: 1046804529457295581, guid: 9e30aa5aaa892004fab396cc9308eaf4, type: 3}
-  inventoryNumber: -1
-  equip: 0
+  equip: 1
+  isRadioComponent: 0
+  particleSystem: {fileID: 0}

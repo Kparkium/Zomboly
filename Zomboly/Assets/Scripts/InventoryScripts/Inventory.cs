@@ -12,12 +12,14 @@ public class Inventory : MonoBehaviour {
     public int radioObjects = 0;
     public int radioObjectsMax = 3;
     public bool radioInInv = false;
+    public bool repairedRadioTower = false;
     public Item completedRadio;
 
     public void Start(){
         count = 0;
         radioObjects = 0;
         radioInInv = false;
+        repairedRadioTower = false;
     }
     //function to add items to the inventory
     public void add(Item newitem)
