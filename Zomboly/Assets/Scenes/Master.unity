@@ -2833,10 +2833,6 @@ PrefabInstance:
       propertyPath: Pause
       value: 
       objectReference: {fileID: 226015635}
-    - target: {fileID: 4496171776628791515, guid: 6d20a9ea4047b034faefa8a7f7f5811e, type: 3}
-      propertyPath: field of view
-      value: 70
-      objectReference: {fileID: 0}
     - target: {fileID: 6560973611393624752, guid: 6d20a9ea4047b034faefa8a7f7f5811e, type: 3}
       propertyPath: m_RootOrder
       value: 13

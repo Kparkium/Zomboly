@@ -28,7 +28,7 @@ public class ZombieAI : MonoBehaviour
     public void Awake()
     {
         entityNavAgent = GetComponent<NavMeshAgent>();
-        zombieHealth = gameObject.AddComponent<UnitHealth>();
+        zombieHealth = GetComponent<UnitHealth>();
         anim = GetComponent<Animator>();
     }
 
