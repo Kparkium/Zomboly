@@ -15,11 +15,22 @@ public class Inventory : MonoBehaviour {
     public bool repairedRadioTower = false;
     public Item completedRadio;
 
+    //stores the starting gun
+    public Item Startinggun;
+
     public void Start(){
         count = 0;
         radioObjects = 0;
         radioInInv = false;
         repairedRadioTower = false;
+        Debug.Log("start");
+        //adds starting gun to inventory
+        if (count == 0)
+        {
+            add(Startinggun);
+        }
+        //equips the gun
+        equip(0);
     }
     //function to add items to the inventory
     public void add(Item newitem)

@@ -345,6 +345,8 @@ MonoBehaviour:
   isMoving: 0
   movementSmoothing: 0.1
   addedGravity: 200
+  waterLevel: 2
+  isInWater: 0
   movement: {x: 0, y: 0, z: 0}
   rb: {fileID: 0}
   playerHealth: {fileID: 0}
@@ -397,7 +399,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Inv: {fileID: 0}
   Pause: {fileID: 0}
-  Startinggun: {fileID: 11400000, guid: 707ad8d138d5e40418bf20fc93b1f337, type: 2}
 --- !u!114 &6496535512078664195
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -416,7 +417,9 @@ MonoBehaviour:
   radioObjects: 0
   radioObjectsMax: 3
   radioInInv: 0
+  repairedRadioTower: 0
   completedRadio: {fileID: 11400000, guid: 760a6e443ea804d9b99ab6fe21c4b24a, type: 2}
+  Startinggun: {fileID: 11400000, guid: 707ad8d138d5e40418bf20fc93b1f337, type: 2}
 --- !u!1 &6560973611393624767
 GameObject:
   m_ObjectHideFlags: 0

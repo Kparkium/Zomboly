@@ -16,12 +16,15 @@ public class PlayerControls : MonoBehaviour
     public bool isMoving;
     public float movementSmoothing = 0.1f; // The smoothing applied to movement changes
     public float addedGravity;
+    public float waterLevel;
+    public bool isInWater;
 
     public Vector3 movement; // The direction of the player's movement
     public Rigidbody rb; // The player's Rigidbody component
     public UnitHealth playerHealth;
     public float maxStamina;
     public float staminaDrain;
+
 
     // Testing
     public float horizontalInput;
@@ -37,6 +40,7 @@ public class PlayerControls : MonoBehaviour
         playerHealth.init(100, 100);
         stamina = maxStamina;
         canSprint = true;
+        StartCoroutine(WaterDamage());
     }
 
     //-----------------------------------------------------------------[UPDATES]-----------------------------------------------------------------
@@ -46,6 +50,7 @@ public class PlayerControls : MonoBehaviour
         GetPlayerInput();
         ApplyMovement();
         AddDownForce();
+        CheckBelowWater();
     }
     public void Update()
     {
@@ -147,5 +152,28 @@ public class PlayerControls : MonoBehaviour
     {
         yield return new WaitForSeconds(3);
         canSprint = true;
+    }
+
+    private void CheckBelowWater()
+    {
+        if(this.transform.position.y < waterLevel)
+        {
+            isInWater = true;
+
+        }
+        else
+        {
+            isInWater = false;
+        }
+    }
+
+    private IEnumerator WaterDamage()
+    {
+        yield return new WaitForSeconds(1);
+        if(isInWater)
+        {
+            playerHealth.DamageUnit(5);
+        }
+        StartCoroutine(WaterDamage());
     }
 }
