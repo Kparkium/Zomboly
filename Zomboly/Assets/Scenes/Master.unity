@@ -1395,10 +1395,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1024805178, guid: bddd26c5e040829468e009986483caad, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 2147483647
-      objectReference: {fileID: 0}
     - target: {fileID: 1621879791396438069, guid: bddd26c5e040829468e009986483caad, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -3208,12 +3204,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3da18ee33dbe3f142b061cb76ad427a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  butterFly: {fileID: 1556525557937860, guid: 18b8af6b3106d4940a5e534dc18c0344, type: 3}
-  animalSpawnLocations:
-  - {x: 0, y: 20, z: 0}
-  - {x: 50, y: 20, z: 0}
-  - {x: 0, y: 20, z: 50}
-  maxAnimals: 5
+  butterfly: {fileID: 1556525557937860, guid: 18b8af6b3106d4940a5e534dc18c0344, type: 3}
+  turtle: {fileID: 1580388819070796, guid: d2d67fda15fa26342932fffde03aeb05, type: 3}
+  flyingAnimalSpawnLocations:
+  - {x: 75, y: 20, z: 75}
+  - {x: 75, y: 20, z: -75}
+  - {x: -75, y: 20, z: 75}
+  - {x: -75, y: 20, z: -75}
+  - {x: -100, y: 20, z: -100}
+  - {x: 100, y: 20, z: 100}
+  groundAnimalSpawnLocations:
+  - {x: 169.26726, y: 5.65, z: -94.79666}
+  - {x: -37.497623, y: 3.04, z: 34.340282}
+  - {x: -34.868187, y: 13.11, z: -107.65554}
+  maxAnimals: 15
   spawnTimer: 5
 --- !u!1 &1005852949
 GameObject:
@@ -4709,37 +4713,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1559836078}
   m_CullTransparentMesh: 1
---- !u!1 &1618689287
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1618689289}
-  m_Layer: 0
-  m_Name: InventoryManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1618689289
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1618689287}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.5791016, y: 13.011002, z: 0.3442428}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 22
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1622493069
 GameObject:
   m_ObjectHideFlags: 0

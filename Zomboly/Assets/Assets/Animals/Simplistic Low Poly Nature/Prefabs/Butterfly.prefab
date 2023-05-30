@@ -324,7 +324,7 @@ MonoBehaviour:
   hoverHeight: 10
   minChangeDirectionTime: 5
   maxChangeDirectionTime: 10
-  maxDistanceFromCenter: 0
+  maxDistanceFromCenter: 150
   moveDirection: {x: 0, y: 0, z: 0}
 --- !u!54 &430118352
 Rigidbody:

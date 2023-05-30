@@ -4,15 +4,18 @@ using UnityEngine;
 
 public class AnimalController : MonoBehaviour
 {
-    public GameObject butterFly;
-    public Vector3[] animalSpawnLocations;
+    public GameObject butterfly;
+    public GameObject turtle;
+    public Vector3[] flyingAnimalSpawnLocations;
+    public Vector3[] groundAnimalSpawnLocations;
     public int maxAnimals;
     public int spawnTimer;
-    private List<GameObject> spawnList = new List<GameObject>();
+    private List<GameObject> spawnList;
 
     // Start is called before the first frame update
     void Start()
     {
+        spawnList = new List<GameObject>();
         StartCoroutine(UpdateAnimals());
     }
 
@@ -20,8 +23,10 @@ public class AnimalController : MonoBehaviour
     {
         if(spawnList.Count < maxAnimals)
         {
-            int locationIndex = Random.Range(0, animalSpawnLocations.Length);
-            spawnList.Add(Instantiate(butterFly, this.transform.position + animalSpawnLocations[locationIndex], Quaternion.identity));
+            int flyingIndex = Random.Range(0, flyingAnimalSpawnLocations.Length);
+            spawnList.Add(Instantiate(butterfly, flyingAnimalSpawnLocations[flyingIndex], Quaternion.identity));
+            int groundIndex = Random.Range(0, groundAnimalSpawnLocations.Length);
+            spawnList.Add(Instantiate(turtle, groundAnimalSpawnLocations[groundIndex], Quaternion.identity));
         }
         yield return new WaitForSeconds(spawnTimer);
         StartCoroutine(UpdateAnimals());

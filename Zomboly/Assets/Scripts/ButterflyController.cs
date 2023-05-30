@@ -11,6 +11,7 @@ public class ButterflyController : MonoBehaviour
     public int maxDistanceFromCenter;
 
     private Rigidbody rb;
+    [SerializeField]
     private Vector3 moveDirection;
     private float changeDirectionTimer;
 
