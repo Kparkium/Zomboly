@@ -136,6 +136,7 @@ public class ZombieAI : MonoBehaviour
         trackingPlayer = false;
         isAttacking = true;
         idleDestination = player.transform.position; // Update destination to point towards players location
+        this.transform.LookAt(player.transform.position);
         // Play attack animation
         state = entityScriptableObject.entityAttackScriptableObject.attackAnimationState; // Attacking
 
