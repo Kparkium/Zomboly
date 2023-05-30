@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: radio
   m_EditorClassIdentifier: 
   itemName: Radio
-  image: {fileID: 21300000, guid: 3494dc956dfd7174abc07060940a2848, type: 3}
+  image: {fileID: 21300000, guid: eb55d688409b644658551a5711782243, type: 3}
   body: {fileID: 919132149155446097, guid: 89bba4f159584034d910c3cc26463fb6, type: 3}
   equip: 0
   isRadioComponent: 0
