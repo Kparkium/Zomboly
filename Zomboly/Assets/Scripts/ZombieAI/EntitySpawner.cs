@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class EntitySpawner : MonoBehaviour
 {
-    public GameObject spawnObject; // Object which will be instantiated
+    public GameObject easyZombie; // Object which will be instantiated
+    public GameObject hardZombie; // Object which will be instantiated
     public float spawnRadius; // Radius around the spawner where the gameobject can spawn
     public float spawnTime; // Interval between spawns in seconds
     public int maxObjectsAtOnce; // Maximum number of the objects allowed on the map at once from this spawner
@@ -19,7 +20,15 @@ public class EntitySpawner : MonoBehaviour
 
     public void SpawnObjectNearSpawner()
     {
-        Instantiate(spawnObject, GenerateSpwanVector(), Quaternion.identity, this.transform);
+        if(!SettingsMenu.hardMode)
+        {
+            Instantiate(easyZombie, GenerateSpwanVector(), Quaternion.identity, this.transform);
+        }
+        else
+        {
+            Instantiate(hardZombie, GenerateSpwanVector(), Quaternion.identity, this.transform);
+        }
+
     }
 
     private IEnumerator SpawnLoop()

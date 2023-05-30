@@ -20,12 +20,20 @@ public class DayNightCycle : MonoBehaviour
     void Start()
     {
         directionalLight = GetComponent<Light>();
+        if(SettingsMenu.hardMode)
+        {
+            currentTimeOfDay = 23;
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        UpdateTime();
+        if(!SettingsMenu.hardMode) // Will always be night if hard mode enabled
+        {
+            UpdateTime();
+        }
+        UpdateSun();
         CheckTimeOfDay();
     }
 
@@ -34,6 +42,10 @@ public class DayNightCycle : MonoBehaviour
         // Calculate current time of day
         currentTimeOfDay += Time.deltaTime / (dayDurationInMinutes * 60f) * 24f; // Calculate the time of day based on the desired output in minutes
         currentTimeOfDay %= 24f; // Take the modulo of 24 to reset back to 0 at the end of the day
+    }
+
+    private void UpdateSun()
+    {
 
         // Calculate normalized time and rotation
         float normalizedTime = currentTimeOfDay / 24f; // Time of day as a scale of 0 to 1
