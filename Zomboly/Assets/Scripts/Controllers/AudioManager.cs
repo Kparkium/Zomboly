@@ -6,6 +6,7 @@ public class AudioManager : MonoBehaviour
 {
     public AudioSource windSource; // 0
     public AudioSource rainSource; // 1
+    public AudioSource gameSoundTrack; // 2 
     public float fadeTime;
     public float maxVolume;
 
@@ -28,6 +29,14 @@ public class AudioManager : MonoBehaviour
                 StopCoroutine(fadeCoroutine);
             }
             fadeCoroutine = StartCoroutine(FadeOutVolume(rainSource));
+        }
+        else if (i == 2)
+        {
+            if (fadeCoroutine != null)
+            {
+                StopCoroutine(fadeCoroutine);
+            }
+            fadeCoroutine = StartCoroutine(FadeOutVolume(gameSoundTrack));
         }
     }
 
@@ -52,6 +61,16 @@ public class AudioManager : MonoBehaviour
             rainSource.volume = 0;
             rainSource.Play();
             fadeCoroutine = StartCoroutine(FadeInVolume(rainSource));
+        } 
+        else if (i == 2)
+        {
+            if (fadeCoroutine != null)
+            {
+                StopCoroutine(fadeCoroutine);
+            }
+            gameSoundTrack.volume = 0;
+            gameSoundTrack.Play();
+            fadeCoroutine = StartCoroutine(FadeInVolume(gameSoundTrack));
         }
     }
 
