@@ -17,6 +17,9 @@ public class GameManager : MonoBehaviour
     private HealthBar healthBar;
     private StaminaBar staminaBar;
     public TextMeshProUGUI taskText;
+    public GameObject[] components;
+    public Vector3[] randomComponentLocations;
+    public Vector3[] setComponentLocations;
 
     //Makes sure that there is only one GameManager in the game.
     void Awake()
@@ -40,6 +43,8 @@ public class GameManager : MonoBehaviour
 
         player = GameObject.FindGameObjectWithTag("Player");
         playerInventory = player.GetComponent<Inventory>();
+
+        SpawnComponents();
     }
 
     //Once health reaches 0, load gameover scene
@@ -71,6 +76,43 @@ public class GameManager : MonoBehaviour
             {
                 taskText.text = "Locate the radio tower & call for help";
             }
+        }
+    }
+
+    public void SpawnComponents()
+    {
+        Vector3[] selectedPositions = new Vector3[components.Length];
+        int[] randomSelections = new int[components.Length];
+        List<int> currentSelections = new List<int>();
+        if(SettingsMenu.randomComponentPos) // Player wants random positons
+        {
+            // Set selectedPositions to randomComponentLocations
+            for(int i = 0; i < components.Length; i++)
+            {
+                int newPos = -1;
+                while (!currentSelections.Contains(newPos) || newPos == -1)
+                {
+                    newPos = Random.Range(0, randomComponentLocations.Length); // Keep selecting until a non selected location is found
+                    if (!currentSelections.Contains(newPos))
+                    {
+                        currentSelections.Add(newPos);
+                    }
+                }
+                randomSelections[i] = newPos;
+            }
+        }
+        else // Player wants set positions
+        {
+            selectedPositions = setComponentLocations;
+        }
+        // Select 3 positions out of the componentLocations
+
+        int currentPosition = 0;
+        foreach (GameObject component in components)
+        {
+            // Instantiate component at a selectedPositions position 
+            Instantiate(component, selectedPositions[currentPosition], Quaternion.identity);
+            currentPosition++;
         }
     }
 

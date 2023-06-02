@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Pistol
   m_EditorClassIdentifier: 
   itemName: 
-  image: {fileID: 21300000, guid: bbbebcae7f9f7b24b8f151e83d694f90, type: 3}
+  image: {fileID: 21300000, guid: eb2ad26a3667548729edd10bf3ff32e4, type: 3}
   body: {fileID: 1046804529457295581, guid: 9e30aa5aaa892004fab396cc9308eaf4, type: 3}
   equip: 1
   isRadioComponent: 0

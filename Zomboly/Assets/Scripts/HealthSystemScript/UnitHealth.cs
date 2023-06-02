@@ -7,7 +7,7 @@ public class UnitHealth : MonoBehaviour
     //Fields (these are default private)
     public int _currentHealth;
     public int _currentMaxHealth;
-
+    public ParticleSystem hitParticle;
     public void Start()
     {
         StartCoroutine(healthTick());
@@ -55,10 +55,11 @@ public class UnitHealth : MonoBehaviour
         if (_currentHealth > 0)
         {
             _currentHealth -= dmgAmount;
+            StartCoroutine(DamageParticles());
         }
         if(_currentHealth <= 0)
         {
-            DestroyImmediate(this.gameObject);
+            Destroy(this.gameObject);
         }
     }
 
@@ -80,5 +81,15 @@ public class UnitHealth : MonoBehaviour
         yield return new WaitForSeconds(2);
         HealUnit(1);
         StartCoroutine(healthTick());
+    }
+
+    private IEnumerator DamageParticles()
+    {
+        ParticleSystem particles = Instantiate(hitParticle, this.gameObject.transform.position, Quaternion.identity, this.transform);
+        yield return new WaitForSeconds(2);
+        if(this != null)
+        {
+            Destroy(particles);
+        }
     }
 }

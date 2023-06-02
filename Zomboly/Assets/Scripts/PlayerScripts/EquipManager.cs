@@ -17,6 +17,6 @@ public class EquipManager : MonoBehaviour
     public void EquipItem(GameObject newItem)
     {
         Destroy(currentEquip);
-        currentEquip = Instantiate(newItem, itemSlot.transform);
+        currentEquip = Instantiate(newItem, itemSlot.transform.position, newItem.transform.rotation, this.transform);
     }
 }
