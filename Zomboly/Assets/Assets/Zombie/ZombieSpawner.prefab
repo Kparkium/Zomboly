@@ -44,8 +44,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ed10c6f9e9655946a47d26f434c62a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnObject: {fileID: 1140169125192065281, guid: 377e67127b1bd7948afaffec8e142933, type: 3}
-  spawnRadius: 20
-  spawnTime: 10
-  maxObjectsAtOnce: 5
+  easyZombie: {fileID: 1140169125192065281, guid: 377e67127b1bd7948afaffec8e142933, type: 3}
+  hardZombie: {fileID: 1140169125192065281, guid: d2c714e297b8a714d9a13c071c75fb48, type: 3}
+  spawnRadius: 5
+  spawnTime: 5
+  maxObjectsAtOnce: 25
   playerToggleRange: 40

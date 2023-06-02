@@ -43,7 +43,7 @@ public class Gun : MonoBehaviour
     }
 
     //-----------------------------------------------------------------[FIRE]-----------------------------------------------------------------
-    private void Fire()
+    public void Fire()
     {
         // if not available to use (still cooling down) just exit
         if (cooldownOver == false)
@@ -66,6 +66,28 @@ public class Gun : MonoBehaviour
                 hitTarget.DamageUnit(damage);
             }
         }
+
+        StartCoroutine(StartCooldown());
+
+    }
+
+    public void Fire(GameObject targetObject)
+    {
+        // if not available to use (still cooling down) just exit
+        if (cooldownOver == false)
+        {
+            return;
+        }
+
+        // Plays effects
+        ShootEffects();
+
+            UnitHealth hitTarget = targetObject.GetComponent<UnitHealth>();
+
+            if (hitTarget != null)
+            { // If target is valid and has a target script
+                hitTarget.DamageUnit(damage);
+            }
 
         StartCoroutine(StartCooldown());
 

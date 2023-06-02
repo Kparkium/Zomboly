@@ -6,9 +6,9 @@ using UnityEngine.AI;
 public class ZombieAI : MonoBehaviour
 {
     // References (Auto gets)
-    private GameObject player;
-    private NavMeshAgent entityNavAgent;
-    private UnitHealth zombieHealth;
+    public GameObject player;
+    public NavMeshAgent entityNavAgent;
+    public UnitHealth zombieHealth;
 
     [Header("PUBLIC REFERENCES")]
     // Entity configuration
@@ -20,19 +20,19 @@ public class ZombieAI : MonoBehaviour
     public float distanceToPlayer;
     // Private variables
     [SerializeField]
-    private Vector3 idleDestination;  // Randomly generated position for the enemy to move towards when not tracking the player
-    private bool idleTimerOver = true;  // Whether the enemy is ready to generate a new idle position
-    private bool trackingPlayer = false;  // Whether the enemy is currently tracking the player
-    private bool isAttacking = false;
+    public Vector3 idleDestination;  // Randomly generated position for the enemy to move towards when not tracking the player
+    public bool idleTimerOver = true;  // Whether the enemy is ready to generate a new idle position
+    public bool trackingPlayer = false;  // Whether the enemy is currently tracking the player
+    public bool isAttacking = false;
 
-    private void Awake()
+    public void Awake()
     {
         entityNavAgent = GetComponent<NavMeshAgent>();
-        zombieHealth = gameObject.AddComponent<UnitHealth>();
+        zombieHealth = GetComponent<UnitHealth>();
         anim = GetComponent<Animator>();
     }
 
-    private void Start()
+    public void Start()
     {
         // Set player reference
         player = GameObject.FindGameObjectWithTag("Player");
@@ -40,24 +40,27 @@ public class ZombieAI : MonoBehaviour
         zombieHealth.init(entityScriptableObject.health, entityScriptableObject.health);
     }
 
-    private void Update()
+    public void Update()
     {
         CalculateDestination();
         UpdateState();
     }
 
-    private void UpdateState()
+    public void UpdateState()
     {
         anim.SetInteger("animIndex", state);
     }
 
 
     // Calculates the next destination based on player proximity
-    private void CalculateDestination()
+    public void CalculateDestination()
     {
-        distanceToPlayer = Vector3.Distance(transform.position, player.transform.position); // Distance to player
+        if(player != null)
+        {
+            distanceToPlayer = Vector3.Distance(transform.position, player.transform.position); // Distance to player
+        }
         // If player is within target range, start tracking player
-        if (distanceToPlayer <= (trackingPlayer ? entityScriptableObject.trackedLockDist : entityScriptableObject.untrackedLockDist) && entityScriptableObject.hostile)
+        if (distanceToPlayer <= (trackingPlayer ? entityScriptableObject.trackedLockDist : entityScriptableObject.untrackedLockDist) && entityScriptableObject.hostile && player != null)
         {
             TrackingPlayerLoop(); // Will track player if target is within range
         }
@@ -69,7 +72,7 @@ public class ZombieAI : MonoBehaviour
     }
 
     // Starts tracking the player
-    private void TrackingPlayerLoop()
+    public void TrackingPlayerLoop()
     {
         if (distanceToPlayer <= entityScriptableObject.entityAttackScriptableObject.attackRange && !isAttacking) // distanceToPlayer <= attack distance  then do attack instead
         {
@@ -88,7 +91,7 @@ public class ZombieAI : MonoBehaviour
     }
 
     // Stops tracking the player
-    private void IdleLoop()
+    public void IdleLoop()
     {
         trackingPlayer = false;
         entityNavAgent.speed = entityScriptableObject.walkSpeed;
@@ -100,7 +103,7 @@ public class ZombieAI : MonoBehaviour
     }
 
     // Generates a new idle position
-    private void SetRandomNewDestination()
+    public void SetRandomNewDestination()
     {
         // Generate new idle position
         idleDestination = new Vector3(transform.position.x + Random.Range(-entityScriptableObject.wanderRange, entityScriptableObject.wanderRange),
@@ -109,7 +112,7 @@ public class ZombieAI : MonoBehaviour
         entityNavAgent.SetDestination(idleDestination);
     }
 
-    private IEnumerator RandomSwitchState()
+    public IEnumerator RandomSwitchState()
     {
         idleTimerOver = false;
         int newState = Random.Range(0, 2); // Random choice between idle (0) and walk (1)
@@ -127,12 +130,13 @@ public class ZombieAI : MonoBehaviour
         idleTimerOver = true;
     }
 
-    private IEnumerator Attack()
+    public IEnumerator Attack()
     {
         // Stop tracking
         trackingPlayer = false;
         isAttacking = true;
         idleDestination = player.transform.position; // Update destination to point towards players location
+        this.transform.LookAt(player.transform.position);
         // Play attack animation
         state = entityScriptableObject.entityAttackScriptableObject.attackAnimationState; // Attacking
 
@@ -156,7 +160,7 @@ public class ZombieAI : MonoBehaviour
         trackingPlayer = true;
     }
 
-    private IEnumerator DoAttackDamage(GameObject targetObject)
+    public IEnumerator DoAttackDamage(GameObject targetObject)
     {
         // Shoot raycast for player instead? (Or object of target type, like gun)
         float distanceToTarget = Vector3.Distance(transform.position, targetObject.transform.position); // Distance to target

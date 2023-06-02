@@ -9,8 +9,11 @@ public class Minimap : MonoBehaviour
    
     void LateUpdate()
     {
-        Vector3 newPosition = player.position;
-        newPosition.y = transform.position.y;
-        transform.position = newPosition;
+        if(player != null)
+        {
+            Vector3 newPosition = player.position;
+            newPosition.y = transform.position.y;
+            transform.position = newPosition;
+        }
     }
 }

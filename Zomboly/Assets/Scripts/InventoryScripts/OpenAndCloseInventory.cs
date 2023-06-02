@@ -13,16 +13,13 @@ public class OpenAndCloseInventory : MonoBehaviour
     private bool isActiveInv = false;
     private bool isActivePause = false;
 
-    //stores the starting gun
-    public Item Startinggun;
+    private Inventory playerInventory;
+
 
     //starts when the code starts 
     void Start()
     {
-        //adds starting gun to inventory
-        Inventory.add(Startinggun);
-        //equips the gun
-        Inventory.equip(0);
+        playerInventory = GameObject.FindGameObjectWithTag("Player").GetComponent<Inventory>();
         //locks the cursor
         Cursor.lockState = CursorLockMode.Locked;
         //closes the resume menu
@@ -38,44 +35,57 @@ public class OpenAndCloseInventory : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+         
         //if the user clicks tab
         if (Input.GetKeyDown(KeyCode.Tab))
         {
-            //if the inventory is open
-            if (isActiveInv)
+            if(!isActivePause)
             {
-                //closes the inventory and unpauses the game
-                Cursor.lockState = CursorLockMode.Locked;
-                Inv.gameObject.SetActive(false);
-                isActiveInv = false;
-                Time.timeScale = 1;
+                //if the inventory is open
+                if (isActiveInv)
+                {
+                    //closes the inventory and unpauses the game
+                    Cursor.lockState = CursorLockMode.Locked;
+                    Inv.gameObject.SetActive(false);
+                    isActiveInv = false;
+                    Time.timeScale = 1;
+                    Debug.Log("updates1");
+                }
+                else
+                {
+                    //opens the inventory updates it and then pauses the game
+                    Inv.GetComponent<InventoryUI>().UpdateUI();
+                    Cursor.lockState = CursorLockMode.Confined;
+                    Inv.gameObject.SetActive(true);
+                    isActiveInv = true;
+                    Time.timeScale = 0;
+                    Debug.Log("updates2");
+                }
             }
-            else
-            {
-                //opens the inventory updates it and then pauses the game
-                Inv.GetComponent<InventoryUI>().UpdateUI();
-                Cursor.lockState = CursorLockMode.Confined;
-                Inv.gameObject.SetActive(true);
-                isActiveInv = true;
-                Time.timeScale = 0;
-            }
+
         }
         //if escape is clicked 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            //if pause menu is open resumes the game
-            if (isActivePause)
-            { 
-               resume();   
-            }
-            else
+            if(!isActiveInv)
             {
-                //pauses the game
-                isActivePause = true;
-                Pause.gameObject.SetActive(true);
-                Cursor.lockState = CursorLockMode.Confined;
-                Time.timeScale = 0;
+                //if pause menu is open resumes the game
+                if (isActivePause)
+                {
+                    resume();
+                    Debug.Log("updates3");
+                }
+                else
+                {
+                    //pauses the game
+                    isActivePause = true;
+                    Pause.gameObject.SetActive(true);
+                    Cursor.lockState = CursorLockMode.Confined;
+                    Time.timeScale = 0;
+                    Debug.Log("updates4");
+                }
             }
+
         }
         
     }

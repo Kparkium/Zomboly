@@ -7,12 +7,11 @@ using UnityEngine.UI;
 public class InventorySlot : MonoBehaviour
 {
     //stores the item
-    Item item;
+    public Item item;
 
     //references to the different parts of the slot
     public Image image;
     public GameObject panel;
-    public GameObject drop;
 
     //adds item to the slot
     public void Add(Item newItem)
@@ -30,7 +29,6 @@ public class InventorySlot : MonoBehaviour
         {
             //sets the color to indicate the item is equipped and disables the drop button
             panel.GetComponent<Image>().color = Color.grey;
-            drop.SetActive(false);
         }
 
     }
@@ -43,8 +41,6 @@ public class InventorySlot : MonoBehaviour
         image.enabled = false;
         //sets the panel to not equipped state
         panel.GetComponent<Image>().color = Color.white;
-        //turns on the drop button
-        drop.SetActive(true);
         //sets the game object as not active
         this.gameObject.SetActive(false);
     }

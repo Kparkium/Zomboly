@@ -24,7 +24,7 @@ public class Interaction : MonoBehaviour
                 if(script != null)
                 {
                     //if it does call interacted function
-                    script.gameObject.GetComponent<Interactable>().Interacted();
+                    script.gameObject.GetComponent<Interactable>().InteractWithInteractable();
                 }
             }
             

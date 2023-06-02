@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38a70129ac2701e4aa714a8b81f33492, type: 3}
   m_Name: Zombie
   m_EditorClassIdentifier: 
-  health: 1
+  health: 20
   hostile: 1
   walkSpeed: 1
   runSpeed: 4
   wanderRange: 15
-  untrackedLockDist: 20
-  trackedLockDist: 30
+  untrackedLockDist: 30
+  trackedLockDist: 60
   minimumRandomStateChange: 2
   maximumRandomStateChange: 10
   entityAttackScriptableObject: {fileID: 11400000, guid: 8909ec846060dc24b8d453b1c37b2e7c, type: 2}
